@@ -73,7 +73,8 @@ function clamp(n, lo, hi) {
 function cleanList(value, maxItems, maxLength) {
   if (!Array.isArray(value)) return [];
   return value
-    .map((item) => String(item == null ? '' : item).replace(/\s+/g, ' ').trim())
+    .filter((item) => typeof item === 'string' || typeof item === 'number')
+    .map((item) => String(item).replace(/\s+/g, ' ').trim())
     .filter(Boolean)
     .slice(0, maxItems)
     .map((item) => item.slice(0, maxLength));
@@ -90,7 +91,8 @@ function extractJson(text) {
 
 function validateDish(raw) {
   if (!raw || typeof raw !== 'object') throw new Error('bad dish');
-  const name = String(raw.name == null ? '' : raw.name).replace(/\s+/g, ' ').trim().slice(0, 90);
+  if (typeof raw.name !== 'string') throw new Error('bad name');
+  const name = raw.name.replace(/\s+/g, ' ').trim().slice(0, 90);
   const protein = numberFrom(raw.protein);
   const fiber = numberFrom(raw.fiber);
   const ingredients = cleanList(raw.ingredients, 20, 120);
