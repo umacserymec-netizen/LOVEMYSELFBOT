@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF8F1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Love Myself — a kind little companion for slow fat loss, good food, gentle movement and a softer head. All data stays on your phone.">
+
+  <title>Love Myself 💗</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Love Myself">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="phone">
+    <header id="topbar"></header>
+    <main id="app" aria-live="polite"></main>
+    <nav id="tabbar" aria-label="Main navigation"></nav>
+  </div>
+
+  <div id="overlay" aria-hidden="true"></div>
+  <div id="toasts" role="status" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <noscript>
+    <div style="padding:24px;font-family:system-ui,sans-serif;text-align:center">
+      <h1>Love Myself 💗</h1>
+      <p>This little app needs JavaScript to work its magic. Please turn it on and reload.</p>
+    </div>
+  </noscript>
+
+  <script src="js/utils.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/move.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>
