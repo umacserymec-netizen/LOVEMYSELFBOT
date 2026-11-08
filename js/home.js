@@ -66,8 +66,8 @@ LM.screens.home = function () {
             '<span class="meal-mini-type">' + meal.type + (m !== meal ? ' · swapped' : '') + '</span>' +
             '<span class="meal-mini-name">' + esc(m.name) + '</span>' +
             '<span class="meal-mini-meta">' +
-              '<span class="pill pink">' + m.protein + 'g protein</span>' +
-              '<span class="pill mint">' + m.fiber + 'g fiber</span>' +
+              '<span class="pill pink">' + (m.source === 'invented' ? 'approx ' : '') + m.protein + 'g protein</span>' +
+              '<span class="pill mint">' + (m.source === 'invented' ? 'approx ' : '') + m.fiber + 'g fiber</span>' +
             '</span>' +
           '</span>' +
           '<span class="meal-mini-arrow">›</span>' +
@@ -368,8 +368,8 @@ LM.screens.meals = function (param) {
           '<div class="meal-type">' + meal.type + (swap ? ' · swapped' : '') + '</div>' +
           '<div class="meal-name">' + esc(m.name) + '</div>' +
           '<div class="meal-meta">' +
-            '<span class="pill pink">' + m.protein + ' g protein</span>' +
-            '<span class="pill mint">' + m.fiber + ' g fiber</span>' +
+            '<span class="pill pink">' + (m.source === 'invented' ? 'approx ' : '') + m.protein + ' g protein</span>' +
+            '<span class="pill mint">' + (m.source === 'invented' ? 'approx ' : '') + m.fiber + ' g fiber</span>' +
             (m.kcal ? '<span class="pill plain">' + m.kcal + ' kcal</span>' : '') +
             ((m.time || meal.time) ? '<span class="pill sky">' + (m.time || meal.time) + ' min</span>' : '') +
           '</div>' +
@@ -390,7 +390,7 @@ LM.screens.meals = function (param) {
         ? '<div class="swap-list">' + opts.map(function (o, idx) {
             return '<div class="swap-item"><span>' + o.emoji + '</span>' +
               '<span class="swap-name">' + esc(o.name) + '</span>' +
-              '<span class="swap-note">' + o.protein + 'g P · ' + o.fiber + 'g F</span>' +
+              '<span class="swap-note">' + (o.source === 'invented' ? 'approx ' : '') + o.protein + 'g P · ' + (o.source === 'invented' ? 'approx ' : '') + o.fiber + 'g F</span>' +
               '<button class="btn btn-sm btn-soft" data-action="use-swap" data-key="' + key + '" data-idx="' + idx + '">Use</button></div>';
           }).join('') + '</div>'
         : '') +
